@@ -1,26 +1,19 @@
-# Face_Detection
-from google.colab import drive
-drive.mount('/content/drive')
-import cv2
-from google.colab.patches import cv2_imshow # Special function to display images in Colab
-# Load the pre-trained Haar Cascade model for face detection
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-from google.colab import files
-uploaded = files.upload()
+Title: Real-Time Face Detection System
 
-# Assuming you upload only one image, get the filename
-filename = next(iter(uploaded))
+This project develops a real-time face detection system using computer vision techniques.
 
-# Read the image
-image = cv2.imread(filename)
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+Technologies Used:
 
-# Detect faces
-faces = face_cascade.detectMultiScale(gray_image, 1.1, 4)
+- Programming Language: Python
+- Libraries: OpenCV, NumPy, and scikit-image
+- Framework: Haar Cascades and Deep Learning
+- Dataset: OpenCV Face Detection Dataset
 
-# Draw rectangles around each face
-for (x, y, w, h) in faces:
-    cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+Approach:
 
-# Display the image with detected faces
-cv2_imshow(image)
+1. Image Preprocessing: Images are converted to grayscale and normalized.
+2. Face Detection: Haar Cascades and Deep Learning models (SSD and YOLO) are used for face detection.
+3. Model Training: Models are trained on the OpenCV Face Detection Dataset.
+4. Real-Time Detection: The system detects faces in real-time using a webcam feed.
+
+
